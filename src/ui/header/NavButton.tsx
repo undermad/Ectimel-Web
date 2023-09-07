@@ -10,7 +10,7 @@ type NavButtonProps = {
 function NavButton({to, text, tailwindcss = ''}: NavButtonProps) {
     return (
         <Link
-            className={`tracking-widest p-1 mx-3 ${tailwindcss}`}
+            className={`text-lg text-ectimel-black tracking-widest p-1 mx-3 ${tailwindcss}`}
             to={to}>{text}</Link>
     );
 }

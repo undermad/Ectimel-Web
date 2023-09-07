@@ -2,7 +2,7 @@ import NavButton from "./NavButton.tsx";
 
 function Header() {
     return (
-        <div className={"flex"}>
+        <div className={"flex bg-ectimel-grey pb-1"}>
             <NavButton to="/" text="Home" tailwindcss="mr-auto"/>
             <NavButton to="/projects" text="Projects"/>
             <NavButton to="/about" text="About"/>
