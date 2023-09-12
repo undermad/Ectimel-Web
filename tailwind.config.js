@@ -5,6 +5,7 @@ export default {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         colors: {
+            'ectimel-mouse': '#624bfc',
             'ectimel-grey-light': '#e8eaea',
             'ectimel-grey': '#C5C1C0',
             'ectimel-black': '#0A1612',

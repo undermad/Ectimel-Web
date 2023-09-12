@@ -1,6 +1,6 @@
 function About() {
     return (
-        <div>
+        <div className={"container w-screen"}>
             About!
         </div>
     );

@@ -1,4 +1,4 @@
-import {motion, useAnimationControls} from "framer-motion";
+import {AnimationControls, motion, useAnimationControls} from "framer-motion";
 import {useState} from "react";
 
 interface TextSpanProps {
@@ -6,10 +6,10 @@ interface TextSpanProps {
 }
 
 const RubberAnim = ({children}: TextSpanProps) => {
-    const controls = useAnimationControls();
+    const controls: AnimationControls = useAnimationControls();
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
-    const rubberBand = () => {
+    const rubberBand = (): void => {
         controls.start({
             transform: [
                 "scale3d(1,1,1)",      //1
@@ -26,7 +26,6 @@ const RubberAnim = ({children}: TextSpanProps) => {
 
         setIsPlaying(true);
     }
-
 
     return (
         <motion.span className={"inline-block hover:text-ectimel-yellow"}

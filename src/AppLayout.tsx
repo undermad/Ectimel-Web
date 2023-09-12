@@ -1,11 +1,14 @@
 import {Outlet} from "react-router-dom";
-import Header from "./ui/header/Header.tsx";
+import NavBar from "./ui/header/NavBar.tsx";
+import Mouse from "./ui/Mouse.tsx";
 
 function AppLayout() {
     return (
-        <section className={"w-screen grid h-screen grid-rows-[auto_1fr]"}>
-            <Header/>
+        <section className={"w-screen grid h-screen grid-rows-[auto_1fr] justify-center bg-ectimel-navy-900 relative"}>
+            <NavBar/>
             <Outlet/>
+            <Mouse/>
+
         </section>
     );
 }

@@ -1,9 +1,15 @@
 import NavButton from "./NavButton.tsx";
+import {useEffect} from "react";
 
-function Header() {
+function NavBar() {
+
+    useEffect(()=> {
+
+    })
+
     return (
-        <div className={"flex bg-ectimel-grey pb-1"}>
-            <NavButton to="/" text="Home" tailwindcss="mr-auto"/>
+        <div className={"flex bg-ectimel-grey pb-1 container w-screen"}>
+            <NavButton to="/" text="Home" tailwindcss=""/>
             <NavButton to="/projects" text="Projects"/>
             <NavButton to="/about" text="About"/>
             <NavButton to="/contact" text="Contact"/>
@@ -12,4 +18,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default NavBar;
