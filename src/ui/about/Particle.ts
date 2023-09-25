@@ -1,6 +1,8 @@
 import {Effect} from "./Effect.ts";
+import {randomIntFromInterval} from "../../utils/utility.tsx";
 
 export class Particle {
+
     effect: Effect;
     x: number;
     y: number;
@@ -24,15 +26,18 @@ export class Particle {
         // this.y = y;
         this.originX = Math.floor(x);
         this.originY = Math.floor(y);
-        this.size = this.effect.gap;
+        this.size = randomIntFromInterval(2, 4);
         this.velocityX =  0;
         this.velocityY = 0;
-        this.ease = 0.05
+        this.ease = 0.1
     }
 
     draw(context: CanvasRenderingContext2D){
         context.fillStyle = this.color;
-        context.fillRect(this.x, this.y, this.size,this.size)
+        // context.fillRect(this.x, this.y, this.size,this.size)
+        context.beginPath();
+        context.arc(this.x,this.y,this.size,0, Math.PI * 2);
+        context.fill();
     }
 
     update(){
