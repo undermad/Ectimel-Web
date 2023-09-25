@@ -1,19 +1,18 @@
 import NavButton from "./NavButton.tsx";
-import {useEffect} from "react";
 
 function NavBar() {
 
-    useEffect(()=> {
-
-    })
-
     return (
-        <div className={"flex bg-ectimel-grey pb-1 container w-screen"}>
-            <NavButton to="/" text="Home" tailwindcss=""/>
-            <NavButton to="/projects" text="Projects"/>
-            <NavButton to="/about" text="About"/>
-            <NavButton to="/contact" text="Contact"/>
-
+        <div className={"flex flex-row container w-screen py-10 justify-center"}>
+            <div className={"basis-1/4 flex justify-center"}>
+                <NavButton to="/" text="HOME._"/>
+            </div>
+            <div className={"basis-2/4 flex justify-center gap-12"}>
+                <NavButton to="/projects" text="PROJECTS"/>
+                <NavButton to="/about" text="ABOUT"/>
+                <NavButton to="/contact" text="CONTACT"/>
+            </div>
+            <div className={"basis-1/4"}/>
         </div>
     );
 }
