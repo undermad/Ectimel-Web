@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 
 type CanvasProps =
     React.DetailedHTMLProps<React.CanvasHTMLAttributes<HTMLCanvasElement>, HTMLCanvasElement> &
-    { draw: (context: CanvasRenderingContext2D) => void };
+    { draw: (context: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => void };
 
 
 const Canvas: React.FC<CanvasProps> = ({draw, ...props}) => {
@@ -14,11 +14,11 @@ const Canvas: React.FC<CanvasProps> = ({draw, ...props}) => {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext('2d',{ willReadFrequently: true });
         if (!context) return;
 
 
-        draw(context)
+        draw(context, canvas)
 
     }, [draw])
 

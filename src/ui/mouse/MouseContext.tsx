@@ -18,3 +18,4 @@ export const MouseThemeContextProvider = ({children}: MouseThemeProviderProps) =
 
     return <MouseThemeContext.Provider value={{hover, setHover}}>{children}</MouseThemeContext.Provider>
 }
+
