@@ -7,8 +7,6 @@ export class Effect {
 
     width: number;
     height: number;
-    // offsetWidth: number;
-    // offsetHeight: number;
     particlesArray: Particle[];
     image: HTMLImageElement;
     imagePositionX: number;
@@ -67,6 +65,7 @@ export class Effect {
 
             }
         }
+        console.log(this.particlesArray)
     }
 
     draw(context: CanvasRenderingContext2D) {

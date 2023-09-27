@@ -17,7 +17,7 @@ function Home() {
                         }}
                         initial={{
                             opacity: 0,
-                            x: -100,
+                            x: -50,
                         }}
                         className={"flex flex-col mt-32"}>
                         <div className={"mb-10"}>
