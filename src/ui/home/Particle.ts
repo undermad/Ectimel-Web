@@ -1,9 +1,8 @@
-import {Effect} from "./Effect.ts";
 import {randomIntFromInterval} from "../../utils/utility.tsx";
+import {MousePosition} from "./MousePosition.ts";
 
 export class Particle {
 
-    effect: Effect;
     x: number;
     y: number;
     originX: number;
@@ -19,10 +18,11 @@ export class Particle {
     angle:number;
     friction: number;
     force: number;
+    mouse: MousePosition;
 
 
-    constructor(effect: Effect, color: string, x: number, y: number) {
-        this.effect = effect;
+    constructor(mouse: MousePosition, color: string, x: number, y: number) {
+        this.mouse = mouse
         this.color = color;
         this.x =x;
         this.y = y;
@@ -48,11 +48,11 @@ export class Particle {
     }
 
     update() {
-        this.dx = this.effect.mouseX - this.x;
-        this.dy = this.effect.mouseY - this.y;
+        this.dx = this.mouse.mouseX - this.x;
+        this.dy = this.mouse.mouseY - this.y;
         this.distance = this.dx * this.dx + this.dy * this.dy;
 
-        if (this.distance < this.effect.mouseRadius) {
+        if (this.distance < this.mouse.mouseRadius) {
             this.angle = Math.atan2(this.dy, this.dx)
             this.velocityX += this.force * Math.cos(this.angle);
             this.velocityY += this.force * Math.sin(this.angle);
