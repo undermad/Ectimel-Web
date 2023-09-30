@@ -7,7 +7,7 @@ export class Particle {
     y: number;
     originX: number;
     originY: number;
-    size: number;
+    maxSize: number;
     color: string;
     velocityX: number;
     velocityY: number;
@@ -21,14 +21,14 @@ export class Particle {
     mouse: MousePosition;
 
 
-    constructor(mouse: MousePosition, color: string, x: number, y: number) {
+    constructor(mouse: MousePosition, maxSize: number, color: string, x: number, y: number) {
         this.mouse = mouse
         this.color = color;
         this.x =x;
         this.y = y;
         this.originX = x
         this.originY = y
-        this.size = randomIntFromInterval(1, 4);
+        this.maxSize = randomIntFromInterval(1, maxSize);
         this.velocityX = 0;
         this.velocityY = 0;
         this.ease = 0.1
@@ -43,7 +43,7 @@ export class Particle {
     draw(context: CanvasRenderingContext2D) {
         context.fillStyle = this.color;
         context.beginPath();
-        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.arc(this.x, this.y, this.maxSize, 0, Math.PI * 2);
         context.fill();
     }
 
