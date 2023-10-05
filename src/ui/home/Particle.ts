@@ -15,7 +15,7 @@ export class Particle {
     dx: number;
     dy: number;
     distance: number;
-    angle:number;
+    angle: number;
     friction: number;
     force: number;
     mouse: MousePosition;
@@ -24,7 +24,7 @@ export class Particle {
     constructor(mouse: MousePosition, maxSize: number, color: string, x: number, y: number) {
         this.mouse = mouse
         this.color = color;
-        this.x =x;
+        this.x = x;
         this.y = y;
         this.originX = x
         this.originY = y
@@ -52,7 +52,7 @@ export class Particle {
         this.dy = this.mouse.mouseY - this.y;
         this.distance = this.dx * this.dx + this.dy * this.dy;
 
-        if (this.distance < this.mouse.mouseRadius) {
+        if (this.distance < this.mouse.radius) {
             this.angle = Math.atan2(this.dy, this.dx)
             this.velocityX += this.force * Math.cos(this.angle);
             this.velocityY += this.force * Math.sin(this.angle);
@@ -60,9 +60,16 @@ export class Particle {
         }
 
 
+        this.backToOrigin();
+    }
+
+    backToOrigin() {
         this.x += (this.velocityX *= this.friction) + (this.originX - this.x) * this.ease;
         this.y += (this.velocityY *= this.friction) + (this.originY - this.y) * this.ease;
     }
+
+
+
 
 
 }

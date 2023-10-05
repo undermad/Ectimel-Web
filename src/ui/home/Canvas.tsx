@@ -7,11 +7,11 @@ import {MousePosition} from "./MousePosition.ts";
 
 
 export const Canvas: React.FC<{
-    width: number;
-    height: number;
     gap: number;
+    height: number;
     maxSize: number;
-    animation: boolean;
+    mouseRadius: number;
+    width: number;
 }> = (props) => {
 
     const width: number = props.width;
@@ -26,10 +26,9 @@ export const Canvas: React.FC<{
     const imageWidth: number = props.width;
     const imageHeight: number = props.height;
     const gap: number = props.gap;
-    const mouse: MousePosition = new MousePosition();
+    const mouse: MousePosition = new MousePosition(props.mouseRadius);
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
 
 
     const init = (context: CanvasRenderingContext2D) => {
@@ -64,7 +63,6 @@ export const Canvas: React.FC<{
 
             }
         }
-        console.log(particlesArray)
     }
 
 
@@ -74,6 +72,27 @@ export const Canvas: React.FC<{
         })
     }
 
+    const update = () => {
+        particlesArray.map((particle) => {
+            particle.update();
+        })
+    }
+
+    const increaseMouseRadius = () => {
+        mouse.increaseRadius(100);
+
+        setTimeout(() => {
+            mouse.decreaseRadius(100);
+        }, 200)
+    }
+
+    useEffect(() => {
+        window.addEventListener('click', increaseMouseRadius);
+        return () => {
+            window.removeEventListener('click', increaseMouseRadius);
+        }
+    });
+
     useEffect(() => {
 
         const canvas = canvasRef.current;
@@ -81,25 +100,19 @@ export const Canvas: React.FC<{
         const context = canvas.getContext('2d', {willReadFrequently: true});
         if (!context) return;
 
-        canvas.addEventListener('mousemove', (event) => {
+        const trackMouse = (event: MouseEvent) => {
             mouse.mouseX = event.clientX - canvas.offsetLeft;
             mouse.mouseY = event.clientY - canvas.offsetTop;
-        })
-
-        const update = () => {
-            particlesArray.map((particle) => {
-                particle.update();
-            })
         }
+
+        canvas.addEventListener('mousemove', trackMouse);
 
         const animate = () => {
             if (!context) return;
             context.clearRect(0, 0, width, height)
             draw(context);
-            if (props.animation) {
-                update();
-                requestAnimationFrame(animate);
-            }
+            update();
+            requestAnimationFrame(animate);
         }
 
         init(context);
@@ -107,8 +120,8 @@ export const Canvas: React.FC<{
 
         return () => {
             particlesArray = [];
+            canvas.removeEventListener('mousemove', trackMouse);
         }
-
 
     })
 
@@ -124,7 +137,8 @@ export const Canvas: React.FC<{
                 x: 50,
             }}
             transition={{type: "tween", duration: 1.1}}
-            width={props.width} height={props.height} ref={canvasRef}/>
+            width={props.width} height={props.height} ref={canvasRef}
+        />
     );
 }
 
