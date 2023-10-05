@@ -1,0 +1,7 @@
+
+
+
+
+
+1.  fix the mouse when window is resized.
+    mouse tracker div move little to the left and top when scroll bars appear on the site or on the bottom of the screen.

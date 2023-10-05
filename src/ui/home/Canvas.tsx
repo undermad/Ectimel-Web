@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from "react";
 import {motion} from "framer-motion";
 import {Particle} from "./Particle.ts";
-import {IMAGE_AVATAR_BASE64} from "../about/ImageBase64.ts";
+import {IMAGE_AVATAR_BASE64} from "./ImageBase64.ts";
 import {randomIntFromInterval} from "../../utils/utility.tsx";
 import {MousePosition} from "./MousePosition.ts";
 
@@ -78,7 +78,7 @@ export const Canvas: React.FC<{
 
         const canvas = canvasRef.current;
         if (!canvas) return;
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext('2d', {willReadFrequently: true});
         if (!context) return;
 
         canvas.addEventListener('mousemove', (event) => {
@@ -107,7 +107,6 @@ export const Canvas: React.FC<{
 
         return () => {
             particlesArray = [];
-
         }
 
 
