@@ -1,4 +1,4 @@
-import {randomIntFromInterval} from "../../utils/utility.tsx";
+import {randomIntInRange} from "../../utils/utility.tsx";
 import {MousePosition} from "./MousePosition.ts";
 
 export class Particle {
@@ -28,7 +28,7 @@ export class Particle {
         this.y = y;
         this.originX = x
         this.originY = y
-        this.maxSize = randomIntFromInterval(1, maxSize);
+        this.maxSize = randomIntInRange(1, maxSize);
         this.velocityX = 0;
         this.velocityY = 0;
         this.ease = 0.1

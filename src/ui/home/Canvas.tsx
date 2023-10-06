@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 import {motion} from "framer-motion";
 import {Particle} from "./Particle.ts";
 import {IMAGE_AVATAR_BASE64} from "./ImageBase64.ts";
-import {randomIntFromInterval} from "../../utils/utility.tsx";
+import {randomIntInRange} from "../../utils/utility.tsx";
 import {MousePosition} from "./MousePosition.ts";
 
 
@@ -49,16 +49,16 @@ export const Canvas: React.FC<{
                 if (opacity > 0 && red < 100) {
 
                     const color = 'rgb('
-                        + randomIntFromInterval(125, 145) + ','
-                        + randomIntFromInterval(100, 120) + ','
-                        + randomIntFromInterval(80, 90) + ')';
+                        + randomIntInRange(125, 145) + ','
+                        + randomIntInRange(100, 120) + ','
+                        + randomIntInRange(80, 90) + ')';
 
                     particlesArray.push(new Particle(
                         mouse,
                         props.maxSize,
                         color,
-                        (x + randomIntFromInterval(1, 3)),
-                        (y + randomIntFromInterval(1, 3))));
+                        (x + randomIntInRange(1, 3)),
+                        (y + randomIntInRange(1, 3))));
                 }
 
             }
