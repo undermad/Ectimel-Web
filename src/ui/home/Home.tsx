@@ -6,9 +6,9 @@ function Home() {
 
     return (
         <section
-            className={"font-medium container w-screen "}>
+            className={"font-medium w-screen flex justify-center"}>
 
-            <div className={" left-1/2"}>
+            <div className={""}>
                 <div className={'flex  gap-24 justify-center items-center'}>
                     <motion.div
                         animate={{

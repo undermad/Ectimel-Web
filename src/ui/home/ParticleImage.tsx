@@ -20,7 +20,7 @@ const ParticleImage: React.FC = () => {
             {isDesktop ?
                 <Canvas mouseRadius={3000} gap={5} maxSize={3} width={750} height={1000}/>
                 :
-                <Canvas mouseRadius={0} gap={3} maxSize={2} width={300} height={400}/>
+                <Canvas mouseRadius={0} gap={4} maxSize={2} width={300} height={400}/>
             }
         </>
     );

@@ -12,9 +12,9 @@ export class Particle {
     velocityX: number;
     velocityY: number;
     ease: number;
-    dx: number;
-    dy: number;
-    distance: number;
+    distanceFromMouseX: number;
+    distanceFromMouseY: number;
+    distanceFromMouse: number;
     angle: number;
     friction: number;
     force: number;
@@ -32,9 +32,9 @@ export class Particle {
         this.velocityX = 0;
         this.velocityY = 0;
         this.ease = 0.1
-        this.dx = 0;
-        this.dy = 0;
-        this.distance = 0
+        this.distanceFromMouseX = 0;
+        this.distanceFromMouseY = 0;
+        this.distanceFromMouse = 0
         this.angle = 0;
         this.friction = 0.98
         this.force = -3;
@@ -48,12 +48,12 @@ export class Particle {
     }
 
     update() {
-        this.dx = this.mouse.mouseX - this.x;
-        this.dy = this.mouse.mouseY - this.y;
-        this.distance = this.dx * this.dx + this.dy * this.dy;
+        this.distanceFromMouseX = this.mouse.mouseX - this.x;
+        this.distanceFromMouseY = this.mouse.mouseY - this.y;
+        this.distanceFromMouse = this.distanceFromMouseX * this.distanceFromMouseX + this.distanceFromMouseY * this.distanceFromMouseY;
 
-        if (this.distance < this.mouse.radius) {
-            this.angle = Math.atan2(this.dy, this.dx)
+        if (this.distanceFromMouse < this.mouse.radius) {
+            this.angle = Math.atan2(this.distanceFromMouseY, this.distanceFromMouseX)
             this.velocityX += this.force * Math.cos(this.angle);
             this.velocityY += this.force * Math.sin(this.angle);
 

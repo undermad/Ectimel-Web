@@ -49,9 +49,9 @@ export const Canvas: React.FC<{
                 if (opacity > 0 && red < 100) {
 
                     const color = 'rgb('
-                        + randomIntInRange(125, 145) + ','
+                        + randomIntInRange(120, 130) + ','
                         + randomIntInRange(100, 120) + ','
-                        + randomIntInRange(80, 90) + ')';
+                        + randomIntInRange(90, 110) + ')';
 
                     particlesArray.push(new Particle(
                         mouse,

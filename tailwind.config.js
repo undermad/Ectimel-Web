@@ -11,6 +11,7 @@ export default {
             'ectimel-grey-light': '#e8eaea',
             'ectimel-grey': '#C5C1C0',
             'ectimel-black': '#0A1612',
+            'ectimel-black-new': '#121212',
             'ectimel-navy': {
                 10: '#fcfcfc',
                 100: '#e8eaea',
@@ -29,6 +30,7 @@ export default {
             'ectimel-yellow': '#F7CE3E',
             'ectimel-red': '#8a161c',
             'ectimel-button-shape': '#a21717',
+            'ectimel-navbar-bg': '#342824',
 
 
             extend: {},

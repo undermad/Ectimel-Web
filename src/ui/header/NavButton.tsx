@@ -34,7 +34,7 @@ function NavButton({to, text, tailwindcss = ''}: NavButtonProps) {
             <Link
                 onMouseOver={hoverOn}
                 onMouseLeave={hoverOff}
-                className={`text-lg font-bold tracking-[5px]  ${tailwindcss}`}
+                className={`text-sm font-bold tracking-[5px]  ${tailwindcss}`}
                 to={to}>
                 {text}
             </Link>
